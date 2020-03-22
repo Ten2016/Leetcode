@@ -7,9 +7,12 @@
 <br>
 <br>
 
-## >新的开始
+## >new start
 
 ## start 20200310
 
 <br>
+
+## add LeetcodeReader by Qt  in 20200323
+
 <br>
