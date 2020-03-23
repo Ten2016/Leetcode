@@ -79,7 +79,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>quen num</string>
+    <string>que name</string>
    </property>
   </widget>
   <widget class="QComboBox" name="comboBox">
@@ -104,16 +104,6 @@
    <item>
     <property name="text">
      <string>stack</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>e</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>New Item</string>
     </property>
    </item>
   </widget>
@@ -161,6 +151,45 @@
    </property>
    <property name="text">
     <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>239</x>
+     <y>130</y>
+     <width>70</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>random</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>490</y>
+     <width>80</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>befor</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>490</y>
+     <width>80</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>next</string>
    </property>
   </widget>
  </widget>

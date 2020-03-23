@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDir>
+#include <QTextStream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -23,13 +24,24 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
+
 private:
-    QString Findfile(QString &dirname);
+    bool Findque(void);
+    void Showquelist(void);
+    void Showque(void);
     
 private:
     Ui::Widget *ui;
 
     QString curPath;
+    QString queName;
+    QList<QString> queList;
+    qint32 queListIndex;
 
 
 
