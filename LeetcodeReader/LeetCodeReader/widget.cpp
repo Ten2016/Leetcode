@@ -136,6 +136,7 @@ void Widget::on_comboBox_currentIndexChanged(int index)
     switch(index){
         case 1:  sortname="每日一题";   break;
         case 2:  sortname="栈";        break;
+        case 3:  sortname="随机刷";    break;
         default: break;
     }
     if(sortname=="")
