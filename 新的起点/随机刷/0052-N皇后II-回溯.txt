@@ -1,0 +1,63 @@
+﻿52. N皇后 II
+n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
+
+
+
+上图为 8 皇后问题的一种解法。
+
+给定一个整数 n，返回 n 皇后不同的解决方案的数量。
+
+示例:
+
+输入: 4
+输出: 2
+解释: 4 皇后问题存在如下两个不同的解法。
+[
+ [".Q..",  // 解法 1
+  "...Q",
+  "Q...",
+  "..Q."],
+
+ ["..Q.",  // 解法 2
+  "Q...",
+  "...Q",
+  ".Q.."]
+]
+
+
+解法：同51题
+
+class Solution {
+public:
+    int totalNQueens(int n) {
+        vector<int> vi;
+        int ans=0;
+        backtrack(ans,vi,0,n);
+        return ans;
+        
+    }
+private:
+    void backtrack(int &ans, vector<int> &vi, int row, int n){
+        if(row==n) ans++;
+        else{
+            for(int col=0;col<n;col++){
+                if(isok(vi,row,col)){
+                    vi.push_back(col);
+                    backtrack(ans,vi,row+1,n);
+                    vi.pop_back();
+                }
+            }
+        }
+    }
+    bool isok(vector<int> &vi, int row,int col){
+        if(row==0) return true;
+        for(int i=0; i<row;i++){
+            if(vi[i]==col) return false;
+        }
+        for(int i=row-1,j=1;i>=0;i--,j++){
+            if(col==vi[i]+j) return false;
+            if(col==vi[i]-j) return false;
+        }
+        return true; 
+    }
+};

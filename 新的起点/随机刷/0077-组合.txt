@@ -1,0 +1,53 @@
+﻿给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。
+
+示例:
+
+输入: n = 4, k = 2
+输出:
+[
+  [2,4],
+  [3,4],
+  [2,3],
+  [1,2],
+  [1,3],
+  [1,4],
+]
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/combinations
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+解法：
+
+class Solution {
+public:
+    vector<vector<int>> combine(int n, int k) {
+        //回溯
+        vector<vector<int>> vvi;
+        vector<int> vi;
+        backtrack(vvi,vi,0,n,k);
+        return vvi;
+        
+    }
+private:
+    void backtrack(vector<vector<int>> &vvi, vector<int> &vi, int a, int n, int k){
+        if(a==k){
+            vvi.push_back(vi);
+        }
+        else{
+            for(int i=1;i<=n;i++){
+                if(isok(vi,i)){
+                    vi.push_back(i);
+                    backtrack(vvi,vi,a+1,n,k);
+                    vi.pop_back();
+                }
+            }
+        }
+    }
+    bool isok(vector<int> &vi, int a){
+        for(int i=0;i<vi.size(); i++){
+            if(a<=vi[i]) return false;
+        }
+        return true;
+    }
+};
