@@ -1,0 +1,46 @@
+﻿输入一个字符串，打印出该字符串中字符的所有排列。
+
+ 
+
+你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。
+
+ 
+
+示例:
+
+输入：s = "abc"
+输出：["abc","acb","bac","bca","cab","cba"]
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+
+解法：回溯
+
+class Solution {
+public:
+    vector<string> permutation(string s) {
+        //backtrack
+        set<string> ss;
+        backtrack(ss,s,0);
+        return vector<string>(ss.begin(),ss.end());
+    }
+private:
+    void backtrack(set<string>& vs,string& s, int k){
+        if(k==s.size())
+            vs.insert(s);
+        else{
+            for(int i=k;i<s.size();i++){
+                swap(s,i,k);
+                backtrack(vs,s,k+1);
+                swap(s,i,k);
+            }
+        }
+    }
+    void swap(string& s,int i,int k){
+        auto tmp=s[i];
+        s[i]=s[k];
+        s[k]=tmp;
+    }
+};
