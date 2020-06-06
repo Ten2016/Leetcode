@@ -1,0 +1,45 @@
+>>:题目描述：
+给定两个字符串 s 和 t，它们只包含小写字母。
+字符串 t 由字符串 s 随机重排，然后在随机位置添加一个字母。
+请找出在 t 中被添加的字母。
+
+示例:
+输入：
+s = "abcd"
+t = "abcde"
+
+输出：
+e
+解释：
+'e' 是那个被添加的字母。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/find-the-difference
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+
+>>:解法：
+将s存入字典中,并且记录出现的个数.
+遍历t,查找不在字典中的字符.
+
+>>:程序：
+
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        unordered_map<char, int> unmap;
+        for(auto c : s){
+            if(unmap.count(c) == 0)
+                unmap[c] = 0;
+            unmap[c]++;
+        }
+        for(auto c : t){
+            if(unmap.count(c) == 0)
+                return c;
+            unmap[c]--;
+            if(unmap[c] == 0)
+                unmap.erase(c);
+        }
+        return '0';
+    }
+};
